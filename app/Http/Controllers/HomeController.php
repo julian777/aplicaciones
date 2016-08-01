@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 
 class HomeController extends Controller{
     
@@ -20,4 +21,20 @@ class HomeController extends Controller{
         
         return View('home.showview',['msg'=> $msg, 'array'=> $array]);
     }
+    
+    public function form(Request $request){
+        // el has("name"), se refiere en el form a name="name"
+        if($request->isMethod("post") && $request->has("name"))
+        {
+            
+            $name = $request->input("name");
+        }
+        else
+        {
+            $name = "";
+        }
+        
+        return View('home.form',["name" => $name]);
+    }
+    
 }
