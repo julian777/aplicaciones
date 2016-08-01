@@ -11,10 +11,12 @@
 |
 */
 
-Route::get('home/lista', 'HomeController@getList');
+
 
 Route::get('/', function () {
     return view('welcome');
 });
 
 Route::get('home/index', 'HomeController@index');
+Route::get('home/id1/{id1}/id2/{id2}', 'HomeController@getId');
+Route::get('home/showview','HomeController@showview');
