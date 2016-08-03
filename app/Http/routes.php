@@ -22,4 +22,11 @@ Route::get('home/id1/{id1}/id2/{id2}', 'HomeController@getId');
 Route::get('home/showview','HomeController@showview');
 
 // Peticiones del tipo get y tipo post
-Route::match(["get","post"],"home/form","HomeController@form");
+//Route::match(["get","post"],"home/form","HomeController@form");
+Route::post('home/form','HomeController@form');
+Route::get('home/form','HomeController@form');
+// Route::post('home','HomeController');
+
+//Route::post('home/form', [
+//   'as' => 'home/form', 'uses' => 'HomeController@form'
+//]);

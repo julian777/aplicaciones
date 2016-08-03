@@ -10,7 +10,25 @@ and open the template in the editor.
         <title></title>
     </head>
     <body>
-<h1>POST</h1>
+<h1>USANDO POST</h1>
+
+   <h2>Llena el formulario</h2>
+  <form id="form1" name="form1" method="post" action="<?=URL::to('home/form')?>">
+  <input type="hidden" name="_token" value="{{ csrf_token() }}">
+
+
+    Nombre de Usuario:<br />
+      <input name="name" value="{{$name}}"  type="text" id="name" size="40" />
+    <br /><br />
+   <br />
+   <br />
+   <br />
+
+   <button type="submit">Send</button>
+
+  </form>
+   
+ <!--
 <form method="post" action="{{url('home/form')}}">
     
     <label>Name: </label>
@@ -19,6 +37,12 @@ and open the template in the editor.
     <button type="submit">Send</button>
   
 </form>
+
+
+-->
+
+
+
     </body>
 </html>
 
