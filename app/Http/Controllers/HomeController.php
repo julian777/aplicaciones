@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\MiFormulario;
-use Illuminate\Support\Facades\Validator;
+use Validator;
 
 
 class HomeController extends Controller{
@@ -41,7 +41,7 @@ class HomeController extends Controller{
     
     public function miFormulario(){
         
-        return view("home.miformulario");
+        return View("home.miformulario");
     }
     
     public function validarMiFormulario(MiFormulario $formulario){
