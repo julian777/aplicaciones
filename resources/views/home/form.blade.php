@@ -27,6 +27,7 @@ and open the template in the editor.
    <button type="submit">Send</button>
 
   </form>
+   <p>Valor del campo name: {{$name}}</p>
    
  <!--
 <form method="post" action="{{url('home/form')}}">

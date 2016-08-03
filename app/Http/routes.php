@@ -22,11 +22,12 @@ Route::get('home/id1/{id1}/id2/{id2}', 'HomeController@getId');
 Route::get('home/showview','HomeController@showview');
 
 // Peticiones del tipo get y tipo post
-//Route::match(["get","post"],"home/form","HomeController@form");
-Route::post('home/form','HomeController@form');
-Route::get('home/form','HomeController@form');
-// Route::post('home','HomeController');
+// se puede usar match
+// Route::match(["get","post"],"home/form","HomeController@form");
+// o su equivalente any:
+Route::any("home/form","HomeController@form");
 
-//Route::post('home/form', [
-//   'as' => 'home/form', 'uses' => 'HomeController@form'
-//]);
+// se puede usar asi, dividido:
+//Route::post('home/form','HomeController@form');
+//Route::get('home/form','HomeController@form');
+
