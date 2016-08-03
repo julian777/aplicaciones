@@ -37,3 +37,5 @@ Route::get("home/nombre/{nombre}/apellidos/{apellidos}", function($nombre,$apell
      return $nombre . " " . $apellidos;
 })->where(["nombre" => "[a-zA-Z]+", "apellidos"=>"[a-zA-Záéíóú]+"]);
 
+Route::get("home/miformulario","HomeController@miFormulario");
+Route::post("home/validarmiformulario","HomeController@validarMiFormulario");

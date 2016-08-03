@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Requests\MiFormulario;
+use Illuminate\Support\Facades\Validator;
 
 
 class HomeController extends Controller{
@@ -37,4 +39,19 @@ class HomeController extends Controller{
         return View('home.form',["name" => $name]);
     }
     
+    public function miFormulario(){
+        
+        return view("home.miformulario");
+    }
+    
+    public function validarMiFormulario(MiFormulario $formulario){
+        $validator = Validator::make(
+                $formulario->all(),
+                $formulario->rules(),
+                $formulario->messages()
+                );
+        if($validator->valid()){
+            return "ok";
+        }
+    }
 }
