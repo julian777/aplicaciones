@@ -30,4 +30,10 @@ Route::any("home/form","HomeController@form");
 // se puede usar asi, dividido:
 //Route::post('home/form','HomeController@form');
 //Route::get('home/form','HomeController@form');
+// este es un tipo distinto, no es necesario para direccionar
+// siempre hacerlo con un controller, se puede hacer de esta forma tambien:
+
+Route::get("home/nombre/{nombre}/apellidos/{apellidos}", function($nombre,$apellidos){
+     return $nombre . " " . $apellidos;
+})->where(["nombre" => "[a-zA-Z]+", "apellidos"=>"[a-zA-Záéíóú]+"]);
 
