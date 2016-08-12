@@ -39,3 +39,6 @@ Route::get("home/nombre/{nombre}/apellidos/{apellidos}", function($nombre,$apell
 
 Route::get("home/miformulario","HomeController@miFormulario");
 Route::post("home/validarmiformulario","HomeController@validarMiFormulario");
+
+Route::get('auth/register','Auth\AuthController@getRegister');
+Route::post('auth/register','Auth\AuthController@postRegister');

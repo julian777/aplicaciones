@@ -16,90 +16,88 @@
 </div>
 <form method="post" action="{{url('home/validarmiformulario')}}" id='form'>
 
-	    <div class="form-group">
+    <div class="form-group">
 
-	        <label for="nombre">Nombre: </label>
+        <label for="nombre">Nombre: </label>
 
-	        <input type="text" name="nombre" class="form-control" value="{{Input::old('nombre')}}" />
+        <input type="text" name="nombre" class="form-control" value="{{Input::old('nombre')}}" />
 
-	        <div class="text-danger" id='error_nombre'>{{$errors->formulario->first('nombre')}}</div>
+        <div class="text-danger" id='error_nombre'>{{$errors->formulario->first('nombre')}}</div>
 
-	    </div>
-
-	     
-
-	    <div class="form-group">
-
-	        <label for="email">Email: </label>
-
-	        <input type="text" name="email" class="form-control" value="{{Input::old('email')}}" />
-
-	        <div class="text-danger" id='error_email'>{{$errors->formulario->first('email')}}</div>
-
-	    </div>
-
-	    {{csrf_field()}}
-
-	    <button type="submit" class="btn btn-primary">Enviar</button>
-
-	</form>
+    </div>
 
 
-	<script>
 
-	 $(function(){
+    <div class="form-group">
 
-	     $("#form").submit(function(e){
+        <label for="email">Email: </label>
 
-	          
+        <input type="text" name="email" class="form-control" value="{{Input::old('email')}}" />
 
-	         var fields = $(this).serialize();
+        <div class="text-danger" id='error_email'>{{$errors->formulario->first('email')}}</div>
 
-	         $.post("{{url('home/validarmiformulario')}}", fields, function(data){
+    </div>
 
-	              
+    {{csrf_field()}}
 
-	             if(data.valid !== undefined){
+    <button type="submit" class="btn btn-primary">Enviar</button>
 
-	                 $("#result").html("Enhorabuena formulario enviado correctamente");
+</form>
 
-	                 $("#form")[0].reset();
 
-	                 $("#error_nombre").html('');
+<script>
 
-	                 $("#error_email").html('');
+$(function () {
 
-	             }
+    $("#form").submit(function (e) {
 
-	             else{
 
-	                 $("#error_nombre").html('');
 
-	                 $("#error_email").html('');
+        var fields = $(this).serialize();
 
-	                 if (data.nombre !== undefined){
+        $.post("{{url('home/validarmiformulario')}}", fields, function (data) {
 
-	                    $("#error_nombre").html(data.nombre);
 
-	                 }
 
-	                 if (data.email !== undefined){
-	                     $("#error_email").html(data.email);
+            if (data.valid !== undefined) {
 
-	                 }
+                $("#result").html("Enhorabuena formulario enviado correctamente");
 
-	             }
+                $("#form")[0].reset();
 
-	              
-	         });
+                $("#error_nombre").html('');
 
-	          
+                $("#error_email").html('');
 
-	         return false;
+            } else {
 
-	     });
+                $("#error_nombre").html('');
 
-	 });
+                $("#error_email").html('');
 
-	</script>
+                if (data.nombre !== undefined) {
+
+                    $("#error_nombre").html(data.nombre);
+
+                }
+
+                if (data.email !== undefined) {
+                    $("#error_email").html(data.email);
+
+                }
+
+            }
+
+
+        });
+
+
+
+        return false;
+
+    });
+
+});
+
+</script>
 @stop
