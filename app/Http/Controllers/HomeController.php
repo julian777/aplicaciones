@@ -51,7 +51,15 @@ class HomeController extends Controller{
                 $formulario->messages()
                 );
         if($validator->valid()){
-            return "ok";
+            
+            if($formulario->ajax()){
+                return response()->json(["valid"=>true],200);
+            }else{
+            
+            return redirect('home/miformulario')
+                    ->with('message','Formulario enviado correctamente');
+            }
+// return "ok";
         }
     }
 }
