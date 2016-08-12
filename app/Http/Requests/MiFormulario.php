@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Requests;
-
 use App\Http\Requests\Request;
 
 class MiFormulario extends Request {
@@ -19,16 +18,25 @@ class MiFormulario extends Request {
         ];
     }
 
-    public function messages() {
-        return [
-            'nombre.required' => 'El campo nombre es requerido',
-            'nombre.min' => 'El minimo permitido son 3 caracteres',
-            'nombre.max' => 'El maximo permitido son 12 caracteres',
-            'nombre.regex' => 'Solo se aceptan letras',
-            'email.required' => 'El campo email es requerido',
-            'email.email' => 'El campo email es requerido',
-        ];
-    }
+  public function messages(){
+
+	        return [
+
+	            'nombre.required' => 'El campo nombre es requerido',
+
+	            'nombre.min' => 'El mínimo permitido son 3 caracteres',
+
+	            'nombre.max' => 'El máximo permitido son 12 caracteres',
+
+	            'nombre.regex' => 'Sólo se aceptan letras',
+
+	            'email.required' => 'El campo email es requerido',
+
+	            'email.email' => 'El formato de email es incorrecto',
+
+	        ];
+
+	    }
 
     // el withErrors tiene un alias, que es por si tenemos varios formularios
     // el withInṕut() redireccion de los campos del formulario
