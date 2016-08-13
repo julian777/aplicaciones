@@ -42,3 +42,5 @@ Route::post("home/validarmiformulario","HomeController@validarMiFormulario");
 
 Route::get('auth/register','Auth\AuthController@getRegister');
 Route::post('auth/register','Auth\AuthController@postRegister');
+
+	Route::get('auth/confirm/email/{email}/confirm_token/{confirm_token}', 'Auth\AuthController@confirmRegister');
