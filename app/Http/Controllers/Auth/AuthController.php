@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Illuminate\Http\Request;
 use Mail;
+use Auth;
 
 class AuthController extends Controller {
     /*
@@ -104,40 +105,61 @@ use AuthenticatesAndRegistersUsers;
         }
     }
 
-	public function confirmRegister($email, $confirm_token){
+    public function confirmRegister($email, $confirm_token) {
 
-	 $user = new User;
+        $user = new User;
 
-	 $the_user = $user->select()->where('email', '=', $email)
+        $the_user = $user->select()->where('email', '=', $email)->where('confirm_token', '=', $confirm_token)->get();
 
-	   ->where('confirm_token', '=', $confirm_token)->get();
 
-	  
 
-	 if (count($the_user) > 0){
+        if (count($the_user) > 0) {
 
-	  $active = 1;
+            $active = 1;
 
-	  $confirm_token = str_random(100);
+            $confirm_token = str_random(100);
 
-	  $user->where('email', '=', $email)
+            $user->where('email', '=', $email)
+                    ->update(['active' => $active, 'confirm_token' => $confirm_token]);
 
-	  ->update(['active' => $active, 'confirm_token' => $confirm_token]);
+            return redirect('auth/register')
+                            ->with('message', 'Enhorabuena ' . $the_user[0]['name'] . ' ya puede iniciar sesión');
+        } else {
 
-	  return redirect('auth/register')
+            return redirect('');
+        }
+    }
 
-	  ->with('message', 'Enhorabuena ' . $the_user[0]['name'] . ' ya puede iniciar sesión');
+    public function postLogin(Request $request) {
 
-	 }
+        if (Auth::attempt(
+                        [
+                    'email' => $request->email,
+                    'password' => $request->password,
+                    'active' => 1
+                        ]
+                        , $request->has('remember')
+                )) {
+            return redirect()->intended($this->redirectPath());
+        } else {
+            $rules = [
+                'email' => 'required|email',
+                'password' => 'required',
+            ];
 
-	 else
+            $messages = [
+                'email.required' => 'El campo email es requerido',
+                'email.email' => 'El formato de email es incorrecto',
+                'password.required' => 'El campo password es requerido',
+            ];
 
-	 {
+            $validator = Validator::make($request->all(), $rules, $messages);
 
-	  return redirect('');
-
-	 }
-
-	}
+            return redirect('auth/login')
+                            ->withErrors($validator)
+                            ->withInput()
+                            ->with('message', 'Error al iniciar sesión');
+        }
+    }
 
 }

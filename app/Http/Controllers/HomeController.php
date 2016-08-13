@@ -9,9 +9,9 @@ use Validator;
 
 class HomeController extends Controller{
     
-    public function index(){
+    public function home(){
         
-        return "Bienvenido al proyecto Laravel 5";
+        return View('home.home');
     }
 
     public function getId($id1, $id2){

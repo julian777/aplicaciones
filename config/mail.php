@@ -54,7 +54,7 @@ return [
     |
     */
 
-    'from' => ['address' => 'jmolimoli6@gmai.com' , 'name' => 'Bitcoin Local Banc'],
+    'from' => ['address' => 'jmolimoli6@gmai.com' , 'name' => 'Bitcoin Local Bank'],
 
     /*
     |--------------------------------------------------------------------------
