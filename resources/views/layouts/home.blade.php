@@ -12,10 +12,6 @@ and open the template in the editor.
         <title>@yield('title')</title>
         <meta name="description" content="@yield('description')" />
         <meta name="keywords" content="@yield('keywords')" />
-
-        <link href="../../../public/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-        <script src="../../../public/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-        <script src="../../../public/bootstrap/js/jquery.js" type="text/javascript"></script>
     </head>
     <body>
         <nav class="navbar navbar-default navbar-fixed-top">
