@@ -37,6 +37,8 @@
 
 
  <a href="{{url('auth/register')}}">Registrarme</a>
+ <br>
+ <a href='{{url("password/email")}}'>Olvidé mi contraseña</a>
 @stop
 
 

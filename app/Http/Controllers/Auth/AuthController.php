@@ -91,7 +91,7 @@ use AuthenticatesAndRegistersUsers;
 
 
 
-            Mail::send('mails.register', ['data' => $data], function($mail) use($data) {
+            Mail::send('emails.register', ['data' => $data], function($mail) use($data) {
 
                 $mail->subject('Confirma tu cuenta');
 
