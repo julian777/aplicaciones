@@ -1,0 +1,12 @@
+CREATE TABLE `laravel`.`users` 
+( `id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT , 
+`name` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL , 
+`email` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL , 
+`password` VARCHAR(60) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL , 
+`active` TINYINT(1) NOT NULL DEFAULT '0' , 
+`confirm_token` VARCHAR(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL , 
+`remember_token` VARCHAR(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL , 
+`created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP , 
+`updated_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP , 
+`perfiles` VARCHAR(250) NOT NULL DEFAULT 'perfiles/perfil.jpg' , 
+PRIMARY KEY (`id`)) ENGINE = InnoDB;
