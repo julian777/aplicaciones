@@ -1,12 +1,6 @@
 @extends('layouts.home')
 
 @section('content')
-<h1>Bienvenid@s a la aplicación Laravel</h1>
-
-@if (Session::has('status'))
-<div class='text-success'>
-    {{Session::get('status')}}
-</div>
-@endif
+<h1>Bienvenid@s a su Banco Local de Bitcoins</h1>
 
 @stop

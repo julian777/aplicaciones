@@ -52,3 +52,5 @@ Route::post('password/email', 'Auth\PasswordController@postEmail');
 
 Route::get('password/reset/{token}', 'Auth\PasswordController@getReset');
 Route::post('password/reset', 'Auth\PasswordController@postReset');
+
+Route::get('user', 'UserController@user');

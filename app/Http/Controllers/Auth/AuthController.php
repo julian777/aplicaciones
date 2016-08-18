@@ -29,6 +29,8 @@ use AuthenticatesAndRegistersUsers;
      *
      * @return void
      */
+    protected $redirectPath = '/user';
+
     public function __construct() {
         $this->middleware('guest', ['except' => 'getLogout']);
     }
