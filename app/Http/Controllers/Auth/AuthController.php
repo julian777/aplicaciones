@@ -135,6 +135,8 @@ use AuthenticatesAndRegistersUsers;
         }
     }
 
+    // problema con este metodo, al intentar loguearse se cae
+    // al parecer Auth::attempt devuelve falso 
     public function postLogin(Request $request) {
 
         if (Auth::attempt(
