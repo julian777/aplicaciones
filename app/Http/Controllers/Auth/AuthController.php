@@ -30,6 +30,9 @@ use AuthenticatesAndRegistersUsers;
      * @return void
      */
     protected $redirectPath = '/user';
+//    protected $loginPath = '/user';
+//    protected $redirectTo = '/user';
+//    protected $redirectAfterLogout = '/';
 
     public function __construct() {
         $this->middleware('guest', ['except' => 'getLogout']);
@@ -142,6 +145,7 @@ use AuthenticatesAndRegistersUsers;
                         ]
                         , $request->has('remember')
                 )) {
+
             return redirect()->intended($this->redirectPath());
         } else {
             $rules = [
