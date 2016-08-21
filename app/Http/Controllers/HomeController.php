@@ -1,65 +1,66 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\MiFormulario;
 use Validator;
 
+class HomeController extends Controller {
 
-class HomeController extends Controller{
-    
-    public function home(){
-        
+    public function home() {
+
         return View('home.home');
     }
 
-    public function getId($id1, $id2){
-        return "<p> id1 es igual a: " . $id1 . "</p><p> id2 es igual a: " . $id2 ."</p>";
+    public function getId($id1, $id2) {
+        return "<p> id1 es igual a: " . $id1 . "</p><p> id2 es igual a: " . $id2 . "</p>";
     }
-    
-    public function showview(){
+
+    public function showview() {
         $msg = "Mi Laravel 5";
-        $array = [1,2,3,4,5,6,7,8,9];
-        
-        return View('home.showview',['msg'=> $msg, 'array'=> $array]);
+        $array = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+        return View('home.showview', ['msg' => $msg, 'array' => $array]);
     }
-    
-    public function form(Request $request){
+
+    public function form(Request $request) {
         // el has("name"), se refiere en el form a name="name"
-        if($request->isMethod("post") && $request->has("name"))
-        {
-            
+        if ($request->isMethod("post") && $request->has("name")) {
+
             $name = $request->input("name");
-        }
-        else
-        {
+        } else {
             $name = "";
         }
-        return View('home.form',["name" => $name]);
+        return View('home.form', ["name" => $name]);
     }
-    
-    public function miFormulario(){
-        
+
+    public function miFormulario() {
+
         return View("home.miformulario");
     }
-    
-    public function validarMiFormulario(MiFormulario $formulario){
+
+    public function miUsuarioA() {
+
+        return View("home.usuarioA");
+    }
+
+    public function validarMiFormulario(MiFormulario $formulario) {
         $validator = Validator::make(
-                $formulario->all(),
-                $formulario->rules(),
-                $formulario->messages()
-                );
-        if($validator->valid()){
-            
-            if($formulario->ajax()){
-                return response()->json(["valid"=>true],200);
-            }else{
-            
-            return redirect('home/miformulario')
-                    ->with('message','Formulario enviado correctamente');
+                        $formulario->all(), $formulario->rules(), $formulario->messages()
+        );
+        if ($validator->valid()) {
+
+            if ($formulario->ajax()) {
+                return response()->json(["valid" => true], 200);
+            } else {
+
+                return redirect('home/miformulario')
+                                ->with('message', 'Formulario enviado correctamente');
             }
 // return "ok";
         }
     }
+
 }

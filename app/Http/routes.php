@@ -34,6 +34,7 @@ Route::get("home/nombre/{nombre}/apellidos/{apellidos}", function($nombre, $apel
     return $nombre . " " . $apellidos;
 })->where(["nombre" => "[a-zA-Z]+", "apellidos" => "[a-zA-Záéíóú]+"]);
 
+Route::get("home/usuarioA", "HomeController@miUsuarioA");
 Route::get("home/miformulario", "HomeController@miFormulario");
 Route::post("home/validarmiformulario", "HomeController@validarMiFormulario");
 
@@ -54,3 +55,13 @@ Route::get('password/reset/{token}', 'Auth\PasswordController@getReset');
 Route::post('password/reset', 'Auth\PasswordController@postReset');
 
 Route::get('user', 'UserController@user');
+
+//Route::get('dashboard', ['middleware' => 'country:Mexico', function(){
+//    return '<h1>Bienvenido!!</h1>';
+//   // return redirect('/user');
+//}]);
+
+Route::get('usuario', ['middleware' => 'active:1', function(){
+    //return '<h1>ERROR EN EL FORMULARIO, NO SE HA PODIDO AUTENTICAR EL USUARIO</h1>';
+   return redirect('home/usuarioA');
+}]);

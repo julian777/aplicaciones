@@ -163,7 +163,7 @@ use AuthenticatesAndRegistersUsers;
 
             $validator = Validator::make($request->all(), $rules, $messages);
 
-            return redirect('auth/login')
+            return redirect('usuario')
                             ->withErrors($validator)
                             ->withInput()
                             ->with('message', 'Error al iniciar sesión');
