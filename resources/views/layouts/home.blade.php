@@ -28,16 +28,19 @@ and open the template in the editor.
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="{{url()}}">Bitcoin Local Bank</a>
+                    <script src="../../../public/bootstrap/js/jquery.js" type="text/javascript"></script>
+                    <link href="../../../public/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+
+                    <a class="navbar-brand" href="{{url("../")}}">Bitcoin Local Bank</a>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li><a href="{{url()}}">Inicio</a></li>
+                        <li><a href="{{url("../")}}">Inicio</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         @if (Auth::check())
                         <li><a href="{{url('user')}}">{{Auth::user()->name}}</a></li>
-                        <li><a href="{{url('index.php/auth/logout')}}">Salir</a></li>
+                        <li><a href="{{url('index.ṕhp/auth/logout')}}">Salir</a></li>
                         @else
                         <li><a href="{{url('index.php/auth/login')}}">Iniciar sesión</a></li>
                         @endif
