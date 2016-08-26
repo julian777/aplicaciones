@@ -3,11 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/var/www/html/aplicaciones/resources/views/layouts/home.blade.php</file>
-            <file>file:/var/www/html/aplicaciones/app/Http/Middleware/Authenticate.php</file>
-            <file>file:/var/www/html/aplicaciones/app/Http/Controllers/Auth/AuthController.php</file>
-            <file>file:/var/www/html/aplicaciones/app/User.php</file>
-            <file>file:/var/www/html/aplicaciones/resources/views/user/user.blade.php</file>
+            <file>file:/var/www/html/aplicaciones/app/Http/Controllers/HomeController.php</file>
+            <file>file:/var/www/html/aplicaciones/resources/views/home/usuarioA.blade.php</file>
+            <file>file:/var/www/html/aplicaciones/public/select.php</file>
+            <file>file:/var/www/html/aplicaciones/public/formuUpdate.php</file>
         </group>
     </open-files>
 </project-private>

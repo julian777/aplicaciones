@@ -11,13 +11,13 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
 
-$sql = "SELECT cedula, nombre, saldo FROM billetera";
+$sql = "SELECT name, usd, btc FROM users";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
-        echo "cedula: " . $row["cedula"]. " - nombre: " . $row["nombre"]. " " . $row["saldo"]. "<br>";
+        echo "Cliente: " . $row["name"]. " Saldo en USD: " . $row["usd"]. " Saldo en BTC: " . $row["btc"]. "<br>";
     }
 } else {
     echo "0 results";

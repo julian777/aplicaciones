@@ -65,3 +65,6 @@ Route::get('usuario', ['middleware' => 'active:1', function(){
     //return '<h1>ERROR EN EL FORMULARIO, NO SE HA PODIDO AUTENTICAR EL USUARIO</h1>';
    return redirect('home/usuarioA');
 }]);
+
+Route::get("home/usuarioA", "HomeController@miUsuarioA");
+Route::post("home/validarCompra", "HomeController@validarCompra");

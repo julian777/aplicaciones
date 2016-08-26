@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\MiFormulario;
+use App\Http\Requests\MiCompra;
 use Validator;
 
 class HomeController extends Controller {
@@ -61,6 +62,46 @@ class HomeController extends Controller {
             }
 // return "ok";
         }
+    }
+
+    public function validarCompra(MiCompra $formulario2) {
+        $validator = Validator::make(
+                        $formulario2->all(), $formulario2->rules(), $formulario2->messages()
+        );
+        if ($validator->valid()) {
+
+            if ($formulario2->ajax()) {
+                return response()->json(["valid" => true], 200);
+            } else {
+
+                return redirect('home/usuarioA')
+                                ->with('message', 'Formulario enviado correctamente');
+            }
+// return "ok";
+        }
+    }
+
+    //......................................................
+
+    public function showWelcome() {
+        return View::make('hello');
+    }
+
+    public function showStudent() {
+        return View::make('students');
+    }
+
+    public function studentInsert() {
+        $postStudent = Input::all();
+        //insert data into mysql table
+        $data = array('sno' => $postStudent['sno'],
+            'sname' => $postStudent['sname'],
+            'course' => $postStudent['course']
+        );
+        //  echo print_r($data);
+        $ck = 0;
+        $ck = DB::table('studentstbl')->Insert($data);
+        echo "Record Added Successfully!";
     }
 
 }
