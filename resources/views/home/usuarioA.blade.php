@@ -41,21 +41,32 @@ $price = $json["ticker"]["last"];
     <input type="text" id="bi" placeholder="BTC" onchange="btcConvert(this);" onkeyup="btcConvert(this);"/>&nbsp;&nbsp;
     <input type="text" id="ci" placeholder="USD" onchange="usdConvert(this);" onkeyup="usdConvert(this);" />
     <br/>
-
-    <a href="../../../public/bitcoin.php">ir a la Grafica que tiene los precios actuales</a>
-    <br/>
-    <a href="../../../public/select.php">Consulte su saldo</a>
 </center>
-
+<table width="100%" border="0" cellpadding="2">
+    <tr>
+        <td>
+            <a href="../../../public/bitcoin.php"><img src="../../../public/perfiles/icon-grafico.png" width="250px" height="250px" ></a>
+            <p>Ir a la grafica de los precios actuales BTC</p>
+            </br>
+            <br/>
+        </td>
+        <td>
+            <a href="../../../public/consulta.php"><img src="../../../public/perfiles/shop3-512.png" width="250px" height="250px"></a>
+            <p>Consulte su saldo BTC-USD</p>
+        </td>
 <div class="text-success" id='result'>
     @if(Session::has('message'))
     {{Session::get('message')}}
     @endif
 </div>
+     <td>
+<br/>
+<a href="../../../public/formuUpdate.php"><img src="../../../public/perfiles/btcdolar.jpeg" ></a>
+<p>Convertir de USD a BTC..Actualice sus bitcoins!!!</p>
+        </td>
+    </tr>
+</table>
 
-<center>
-<a href="../../../public/formuUpdate.php">Convertir de USD a BTC..Actualice sus bitcoins!!!</a>
-</center>
 
 
 @stop
